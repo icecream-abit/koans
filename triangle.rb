@@ -14,6 +14,14 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
+  s = (a + b + c) / 2.0
+  
+  valid_triangle = (s - a) * (s - b) * (s - c)
+
+  if a <= 0 || b <= 0 || c <= 0 || valid_triangle <= 0 
+    raise TriangleError
+  end
+
   if (a == b) && (a == c) && (b == c)
     :equilateral
   elsif (a == b) || (a == c) || (b == c)
